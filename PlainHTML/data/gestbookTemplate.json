@@ -1,0 +1,12 @@
+{
+    "name": "Hans Peter",
+    "geburtstag": "11.05.1997",
+    "mail": "hans.peter@web.de",
+    "wohnort": "Coburg",
+    "plz": 42897,
+    "hobbys": [
+      "Schwimmen",
+      "Tennis",
+      "Malen"
+    ]
+}

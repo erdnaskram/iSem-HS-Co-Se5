@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Hans Peter",
+    "geburtstag": "11.05.1997",
+    "mail": "hans.peter@web.de",
+    "wohnort": "Coburg",
+    "plz": 42897,
+    "hobbys": [
+      "Schwimmen",
+      "Tennis",
+      "Malen"
+    ]
+  },
+  {
+    "name": "Lisa Mueller",
+    "geburtstag": "05.08.1987",
+    "mail": "Muli@hs-coburg.de",
+    "wohnort": "Bergtheim",
+    "plz": 66357,
+    "hobbys": [
+      "Tanzen",
+      "Programmieren",
+      "Musik"
+    ]
+  }
+]
