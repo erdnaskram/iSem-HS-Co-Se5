@@ -2,7 +2,9 @@
     --akzent1: #d80030;
     --darkgray: #444;
     --lightgray: #ccc;
-    --lightblue: #7fbcf3
+    --lightblue: #7fbcf3;
+    --lightshineblue: rgba(151, 205, 253, 0.32);
+    --darkblue: #033e84;
 }
 
 *{

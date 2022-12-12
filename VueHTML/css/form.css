@@ -1,0 +1,45 @@
+
+.formular {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    width: 90%;
+    max-width: 40rem;
+}
+
+.formular input {
+    font: inherit;
+    border: 1px solid #ccc;
+}
+
+.formular input:focus {
+    outline: none;
+    border-color: var(--lightblue);
+    background-color: var(--lightshineblue);
+}
+
+.formular button {
+    font: inherit;
+    cursor: pointer;
+    border: 1px solid var(--lightblue);
+    background-color: var(--darkblue);
+    color: white;
+    padding: 0.05rem 1rem;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+    border-radius: 20px;
+    margin: 0 1rem;
+}
+
+.formular button:hover,
+.formular button:active {
+    background-color: var(--lightblue);
+    border-color: var(--lightblue);
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+
+#submit{
+    font-size: 22px;
+}

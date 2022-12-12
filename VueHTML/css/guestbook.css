@@ -24,23 +24,32 @@ td {
 }
 
 .eintrag {
-    background-color: var(--darkgray);
-    border-radius: 5px;
-    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
     margin-top: 20px;
+
 }
 
 
 /* Sidebar */
 .info {
+
     grid-area: info;
     color: #444;
 }
 
 .info div{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
     background-color: var(--lightblue);
-    border-radius: 5px;
-    padding: 10px;
 }
 
 
@@ -79,7 +88,7 @@ td {
 }
 
 .box {
-    color: #fff;
+    color: var(--darkgray);
     border-radius: 5px;
     font-size: 150%;
 }
