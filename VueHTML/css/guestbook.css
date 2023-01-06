@@ -10,7 +10,7 @@
     grid-area: personal;
 }
 
-h1{
+h1 {
     color: var(--darkgray);
 }
 
@@ -21,6 +21,23 @@ td {
 
 .tablebold {
     font-weight: bold;
+}
+
+#suche {
+    background-color: var(--lightblue);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#suche input {
+    font-size: 15px;
 }
 
 .eintrag {
@@ -34,6 +51,41 @@ td {
 
 }
 
+#navigation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0px auto;
+    border-radius: 1em;
+    justify-content: center;
+    animation: grow 5s infinite;
+}
+
+.button {
+    color: white;
+    border-radius: 25px;
+    border: none;
+    height: 35px;
+    font-size: 16px;
+    margin: 6px;
+    cursor: pointer;
+}
+
+.button:disabled {
+    background-color: var(--darkgray);
+    cursor: default;
+}
+
+.wechselButton {
+    background-color: var(--darkblue);
+    width: 100px;
+}
+
+.nummerButton {
+    background-color: var(--lightblue);
+    width: 35px;
+}
+
 
 /* Sidebar */
 .info {
@@ -42,7 +94,7 @@ td {
     color: #444;
 }
 
-.info div{
+.info div {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     margin: 3rem auto;
     border-radius: 10px;

@@ -1,3 +1,17 @@
+.wrapper{
+}
+.projekt{
+    margin: 3rem;
+}
+
+.ueber{
+
+}
+
+
+.tablebold{
+    font-weight: bold;
+}
 
 .formular {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -37,6 +51,10 @@
     background-color: var(--lightblue);
     border-color: var(--lightblue);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+li{
+    list-style: none;
 }
 
 
