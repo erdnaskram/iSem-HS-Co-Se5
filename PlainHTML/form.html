@@ -1,10 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+    <title>PG - Mitmachen</title>
 </head>
-<body>
 
+<body>
+<header>
+    <div id="name">
+        <h1>Project Guestbook</h1>
+        <hr>
+        <h1>HS Coburg</h1>
+    </div>
+</header>
+<div id="logoSwitch">
+    <a href="../VueHTML/form.html">
+        <img src="../img/Javascript_badgeV2.svg">
+    </a>
+</div>
+<nav>
+    <ul>
+        <li><a href="index.html">Über uns</a></li>
+        <li><a href="guestbook.html">Gästebuch</a></li>
+        <li><a href="form.html" class="active">Mitmachen</a></li>
+        <li><a href="https://github.com/erdnaskram/iSem-HS-Co-Se5">SourceCode</a></li>
+    </ul>
+</nav>
+<main class="wrapper">
+    <section class="box projekt">
+        <h1>Project Guestbook - HS Coburg</h1>
+        <div class="ueber">
+            <h3>Was ist Project Guestbook?</h3>
+            <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es
+                sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.
+                Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher
+                Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgendein Recht, einen Menschen zu tadeln,
+                der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der
+                Schmerz vermeidet.</p>
+            <p>Aktuell <a class="tablebold">345</a> Einträge!</p>
+        </div>
+    </section>
+
+    <section class="box formular">
+        <div>
+            <h2>Neuer Gästebucheintrag</h2>
+            <h3>Dein Name</h3>
+            <input class="textInput" type="text" placeholder="Vorname">
+            <input class="textInput" type="text" placeholder="Nachname">
+            <h3>Mail</h3>
+            <input class="textInput" type="text" placeholder="Mail">
+            <h3>Wohnort</h3>
+            <input class="textInput" type="text" placeholder="PLZ">
+            <input class="textInput" type="text" placeholder="Ort">
+            <h3>Hobbys</h3>
+            <input class="textInput" type="text" placeholder="Hobbys">
+            <button>Add</button>
+            <ul>
+                <li>Schwimmen<button>x</button></li>
+                <li>Radfahren<button>x</button></li>
+            </ul>
+            <h3>Nachricht</h3>
+            <textarea rows="4" cols="50"></textarea>
+            <br>
+            <button id="submit">Submit</button>
+        </div>
+    </section>
+</main>
+<hr>
+<footer>
+    <ul id="social">
+        <li><a>FB</a></li>
+        <li><a>TW</a></li>
+        <li><a>XI</a></li>
+    </ul>
+    <ul id="rechtliches">
+        <li>
+            <a>Netzwerk</a>
+        </li>
+        <li>
+            <a>Impressum</a>
+        </li>
+    </ul>
+</footer>
 </body>
 </html>

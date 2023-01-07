@@ -23,6 +23,47 @@ body {
     align-items: stretch;
 }
 
+#logoSwitch{
+    animation: loader 2s;
+    z-index: 2;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+
+    background-color: #f1dbc4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logoSwitch a {
+    height: 80%;
+    width: 80%;
+}
+#logoSwitch a img{
+    width: 100%;
+    height: 100%;
+}
+@keyframes loader {
+    0% {
+        opacity: 0;
+    }
+    15% {
+        display: block;
+        rotate: 360deg;
+        border-radius: 50%;
+        transform: scale(0, 0);
+        opacity: 0;
+    }
+    100% {
+        rotate: 0deg;
+        transform: scale(1, 1);
+        opacity: 1;     }
+}
+
 header, main, footer {
     flex-shrink: 0;
 }
@@ -46,6 +87,9 @@ header {
     background-color: #f1dbc4;
     width: 300px;
     top: 100px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
 }
 #name hr {
     background-color: #033e84;
