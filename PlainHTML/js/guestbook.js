@@ -167,7 +167,7 @@ function schreibeGaestebuch() {
         let inhaltHobbys = document.createElement("td");
             for (const hobby of eintrag.hobbys) {
                 let AinhaltHobbys = document.createElement("a");
-                    let TNinhaltHobbys = document.createTextNode(hobby.beschreibung);
+                    let TNinhaltHobbys = document.createTextNode(hobby.beschreibung + " ");
                 AinhaltHobbys.appendChild(TNinhaltHobbys);
                 inhaltHobbys.appendChild(AinhaltHobbys)
             }

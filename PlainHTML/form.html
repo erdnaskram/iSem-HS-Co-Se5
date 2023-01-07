@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+
+
+    <script src="js/form.js"></script>
+
     <title>PG - Mitmachen</title>
 </head>
 
@@ -19,7 +22,7 @@
     </div>
 </header>
 <div id="logoSwitch">
-    <a href="../VueHTML/form.html">
+    <a href="../PlainHTML/form.html">
         <img src="../img/Javascript_badgeV2.svg">
     </a>
 </div>
@@ -31,43 +34,46 @@
         <li><a href="https://github.com/erdnaskram/iSem-HS-Co-Se5">SourceCode</a></li>
     </ul>
 </nav>
-<main class="wrapper">
-    <section class="box projekt">
-        <h1>Project Guestbook - HS Coburg</h1>
-        <div class="ueber">
-            <h3>Was ist Project Guestbook?</h3>
-            <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es
-                sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.
-                Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher
-                Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgendein Recht, einen Menschen zu tadeln,
-                der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der
-                Schmerz vermeidet.</p>
-            <p>Aktuell <a class="tablebold">345</a> Einträge!</p>
-        </div>
+<main id="wrapper" class="wrapper">
+
+    <section id="meldung" class="box info"
+            style="display: none">
+        <h2 id="mitteilungsText"></h2>
+        <button onclick="schließeMeldung()">X</button>
     </section>
 
-    <section class="box formular">
+    <section id="form" class="box formular">
         <div>
             <h2>Neuer Gästebucheintrag</h2>
             <h3>Dein Name</h3>
-            <input class="textInput" type="text" placeholder="Vorname">
-            <input class="textInput" type="text" placeholder="Nachname">
+            <input class="textInput" type="text" placeholder="Vorname"
+                   id="vorname">
+            <input class="textInput" type="text" placeholder="Nachname"
+                   id="nachname">
+            <h3>Geburtstag</h3>
+            <input class="textInput" type="date"
+                   min="1920-01-01" max="2023-01-01"
+                   id="geburtstag">
             <h3>Mail</h3>
-            <input class="textInput" type="text" placeholder="Mail">
+            <input class="textInput" type="email" placeholder="Mail"
+                   id="mail">
             <h3>Wohnort</h3>
-            <input class="textInput" type="text" placeholder="PLZ">
-            <input class="textInput" type="text" placeholder="Ort">
+            <input class="textInput" type="number" placeholder="PLZ"
+                   min="10000" max="99999"
+                   id="plz">
+            <input class="textInput" type="text" placeholder="Ort"
+                   id="wohnort">
             <h3>Hobbys</h3>
-            <input class="textInput" type="text" placeholder="Hobbys">
-            <button>Add</button>
-            <ul>
-                <li>Schwimmen<button>x</button></li>
-                <li>Radfahren<button>x</button></li>
+            <input class="textInput" type="text" placeholder="Hobbys"
+                   id="hobby"
+                   onkeydown.enter="addHobby()">
+            <button onclick="addHobby()">Add</button>
+            <ul id="hobbys">
             </ul>
             <h3>Nachricht</h3>
-            <textarea rows="4" cols="50"></textarea>
+            <textarea rows="4" cols="50" id="nachricht"></textarea>
             <br>
-            <button id="submit">Submit</button>
+            <button id="submit" onclick="confirmForm()">Submit</button>
         </div>
     </section>
 </main>

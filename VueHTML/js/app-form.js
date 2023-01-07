@@ -87,7 +87,6 @@ Vue.createApp({
                 this.unvollstaendig = true;
             }
 
-
             if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.neuerEintrag.mail)){
                 inputVollstaendig = false;
                 this.falscheDaten = true;
@@ -98,15 +97,11 @@ Vue.createApp({
                 this.falscheDaten = true;
             }
 
-
             if (this.neuerEintrag.geburtstag > "2023-01-01" ||
                 this.neuerEintrag.geburtstag < "1920-01-01"){
                 inputVollstaendig = false;
                 this.falscheDaten = true;
             }
-
-
-
 
             return inputVollstaendig;
         },
