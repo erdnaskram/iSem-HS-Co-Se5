@@ -1,93 +1,90 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/guestbook.css">
+    <html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/guestbook.css">
 
+        <script src="js/guestbook.js"></script>
 
-    <script src="https://unpkg.com/vue@latest"></script>
-    <script type="module" src="js/guestbook.js"></script>
+        <title>Gästebuch</title>
+    </head>
 
-    <title>Gästebuch</title>
-</head>
-
-<body class="app">
-<header>
-    <div id="name">
-        <h1>Project Guestbook</h1>
-        <hr>
-        <h1>HS Coburg</h1>
-    </div>
-</header>
-<div id="logoSwitch">
-    <a href="../VueHTML/guestbook.html">
-        <img src="../img/Javascript_badgeV2.svg">
-    </a>
-</div>
-<nav>
-    <ul>
-        <li><a href="index.html">Über uns</a></li>
-        <li><a href="guestbook.html" class="active">Gästebuch</a></li>
-        <li><a href="form.html">Mitmachen</a></li>
-        <li><a href="https://github.com/erdnaskram/iSem-HS-Co-Se5">SourceCode</a></li>
-    </ul>
-</nav>
-<main class="wrapper">
-    <section class="box projekt">
-        <h1>Gästebucheinträge - Seite 1</h1>
-        <div id="suche">
-            <input class="textInput"
-                   v-model="suchParameter"
-                   placeholder="Suchen ... ">
-        </div>
-        <div id="Gaestebucheintraege">
-
-        </div>
-        <div id="navigation" class="container">
-            <button class="button wechselButton"
-                    v-on:click="wechselSeite('zurück')"
-                    :disabled="ersteSeite">
-                zurück
-            </button>
-            <div id="seitenzahlen">
-
+    <body>
+        <header>
+            <div id="name">
+                <h1>Project Guestbook</h1>
+                <hr>
+                <h1>HS Coburg</h1>
             </div>
-            <button class="button wechselButton"
-                    v-on:click="wechselSeite('nächste')"
-                    :disabled="letzteSeite">
-                nächste
-            </button>
+        </header>
+        <div id="logoSwitch">
+            <a href="../VueHTML/guestbook.html">
+                <img src="../img/Javascript_badgeV2.svg">
+            </a>
         </div>
-    </section>
+        <nav>
+            <ul>
+                <li><a href="index.html">Über uns</a></li>
+                <li><a href="guestbook.html" class="active">Gästebuch</a></li>
+                <li><a href="form.html">Mitmachen</a></li>
+                <li><a href="https://github.com/erdnaskram/iSem-HS-Co-Se5">SourceCode</a></li>
+            </ul>
+        </nav>
+        <main class="wrapper">
+            <section class="box projekt">
+                <h1 id="seitenanzeige">Gästebucheinträge - Seite 1</h1>
+                <div id="suche">
+                    <input id="suchfeld" class="textInput"
+                           placeholder="Suchen ... ">
+                </div>
+                <div id="gaestebucheintraege">
 
-    <section class="box info">
-        <div>
-            <h2>Mitmachen</h2>
-            <p>Du findest dieses komplett inhaltslose und langweilige Projekt cool? Schön für dich, wenn du auch einen
-                Beitrag leisten willst, den vermutlich nie jemand liest, dann klicke auf Mitmachen um deinen
-                persönlichen
-                Senf dazuzugeben!</p>
-        </div>
-    </section>
-</main>
-<hr>
-<footer>
-    <ul id="social">
-        <li><a>FB</a></li>
-        <li><a>TW</a></li>
-        <li><a>XI</a></li>
-    </ul>
-    <ul id="rechtliches">
-        <li>
-            <a>Netzwerk</a>
-        </li>
-        <li>
-            <a>Impressum</a>
-        </li>
-    </ul>
-</footer>
-</body>
+                </div>
+                <div id="navigation" class="container">
+                    <button id="buttonZurueck"
+                            class="button wechselButton"
+                            onclick="wechselSeite('zurück')">
+                        zurück
+                    </button>
+                    <div id="seitenzahlen">
+
+                    </div>
+                    <button id="buttonNaechste"
+                            class="button wechselButton"
+                            onclick="wechselSeite('nächste')">
+                        nächste
+                    </button>
+                </div>
+            </section>
+
+            <section class="box info">
+                <div>
+                    <h2>Mitmachen</h2>
+                    <p>Du findest dieses komplett inhaltslose und langweilige Projekt cool? Schön für dich, wenn du auch einen
+                        Beitrag leisten willst, den vermutlich nie jemand liest, dann klicke auf Mitmachenum deinen
+                        persönlichen
+                        Senf dazuzugeben!</p>
+                </div>
+            </section>
+        </main>
+        <hr>
+        <footer>
+            <ul id="social">
+                <li><a>FB</a></li>
+                <li><a>TW</a></li>
+                <li><a>XI</a></li>
+            </ul>
+            <ul id="rechtliches">
+                <li>
+                    <a>Netzwerk</a>
+                </li>
+                <li>
+                    <a>Impressum</a>
+                </li>
+            </ul>
+        </footer>
+    </body>
 </html>

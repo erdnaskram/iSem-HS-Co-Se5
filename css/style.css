@@ -24,7 +24,7 @@ body {
 }
 
 #logoSwitch{
-    animation: loader 2s;
+    animation:  loader 2s;
     z-index: 2;
     position: fixed;
     top: 20px;
@@ -61,7 +61,8 @@ body {
     100% {
         rotate: 0deg;
         transform: scale(1, 1);
-        opacity: 1;     }
+        opacity: 1;
+    }
 }
 
 header, main, footer {

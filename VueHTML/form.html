@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/form.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+
+    <script src="js/vue.global.js"></script>
+    <script type="module" src="js/app-form.js"></script>
+
     <title>PG - Mitmachen</title>
 </head>
 
-<body>
+<body class="app">
 <header>
     <div id="name">
         <h1>Project Guestbook</h1>
@@ -32,43 +35,74 @@
     </ul>
 </nav>
 <main class="wrapper">
-    <section class="box projekt">
-        <h1>Project Guestbook - HS Coburg</h1>
-        <div class="ueber">
-            <h3>Was ist Project Guestbook?</h3>
-            <p>Auch gibt es niemanden, der den Schmerz an sich liebt, sucht oder wünscht, nur, weil er Schmerz ist, es
-                sei denn, es kommt zu zufälligen Umständen, in denen Mühen und Schmerz ihm große Freude bereiten können.
-                Um ein triviales Beispiel zu nehmen, wer von uns unterzieht sich je anstrengender körperlicher
-                Betätigung, außer um Vorteile daraus zu ziehen? Aber wer hat irgendein Recht, einen Menschen zu tadeln,
-                der die Entscheidung trifft, eine Freude zu genießen, die keine unangenehmen Folgen hat, oder einen, der
-                Schmerz vermeidet.</p>
-            <p>Aktuell <a class="tablebold">345</a> Einträge!</p>
-        </div>
-    </section>
 
-    <section class="box formular">
+    <section v-if="!confirmed"
+            class="box formular">
         <div>
             <h2>Neuer Gästebucheintrag</h2>
             <h3>Dein Name</h3>
-            <input class="textInput" type="text" placeholder="Vorname">
-            <input class="textInput" type="text" placeholder="Nachname">
+            <input class="textInput" type="text" placeholder="Vorname"
+                    v-model="neuerEintrag.name.vorname">
+            <input class="textInput" type="text" placeholder="Nachname"
+                   v-model="neuerEintrag.name.nachname">
+            <h3>Geburtstag</h3>
+            <input class="textInput" type="date"
+                   v-model="neuerEintrag.geburtstag">
             <h3>Mail</h3>
-            <input class="textInput" type="text" placeholder="Mail">
+            <input class="textInput" type="email" placeholder="Mail"
+                   v-model="neuerEintrag.mail">
             <h3>Wohnort</h3>
-            <input class="textInput" type="text" placeholder="PLZ">
-            <input class="textInput" type="text" placeholder="Ort">
+            <input class="textInput" type="number" placeholder="PLZ"
+                   v-model="neuerEintrag.plz">
+            <input class="textInput" type="text" placeholder="Ort"
+                   v-model="neuerEintrag.wohnort">
             <h3>Hobbys</h3>
-            <input class="textInput" type="text" placeholder="Hobbys">
-            <button>Add</button>
-            <ul>
-                <li>Schwimmen<button>x</button></li>
-                <li>Radfahren<button>x</button></li>
+            <input class="textInput" type="text" placeholder="Hobbys"
+                    v-model="hobby"
+                    v-on:keydown.enter="addHobby()">
+            <button v-on:click="addHobby()">Add</button>
+            <ul v-for="hobby in neuerEintrag.hobbys">
+                <li>{{hobby.beschreibung}}
+                    <button v-on:click="deleteHobby(hobby.beschreibung)">x</button>
+                </li>
             </ul>
             <h3>Nachricht</h3>
-            <textarea rows="4" cols="50"></textarea>
+            <textarea rows="4" cols="50" v-model="neuerEintrag.nachricht"></textarea>
             <br>
-            <button id="submit">Submit</button>
+            <button id="submit" v-on:click="confirmForm()">Submit</button>
         </div>
+    </section>
+
+    <section v-if="confirmed"
+            class="box eintrag">
+        <h2>{{neuerEintrag.name.vorname}} {{neuerEintrag.name.nachname}}</h2>
+        <hr class="line">
+        <table>
+            <tr>
+                <td class="tablebold">Geburtstag:</td>
+                <td>{{neuerEintrag.geburtstag}}</td>
+            </tr>
+            <tr>
+                <td class="tablebold">Kontakt:</td>
+                <td>{{neuerEintrag.mail}}</td>
+            </tr>
+            <tr>
+                <td class="tablebold">PLZ/Wohnort:</td>
+                <td>{{neuerEintrag.plz}} {{neuerEintrag.wohnort}}</td>
+            </tr>
+            <tr>
+                <td class="tablebold">Hobbys:</td>
+                <td><a v-for="hobby in neuerEintrag.hobbys">{{hobby.beschreibung + " "}}</a></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="tablebold">Nachricht:</td>
+            </tr>
+            <tr>
+                <td>{{neuerEintrag.nachricht}}</td>
+            </tr>
+        </table>
     </section>
 </main>
 <hr>

@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/about.css">
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+
+    <script src="js/vue.global.js"></script>
+    <script type="module" src="js/app-startseite.js"></script>
+
     <title>Projec Guestbook</title>
 </head>
 
-<body>
+<body class="app">
 <header>
     <div id="name">
         <h1>Project Guestbook</h1>
@@ -42,7 +45,7 @@
                 versprechen. Hier können aber auch Nachteile ver-mutet werden, denn die Erfahrung zeigt, dass manche
                 Probleme erst während der Entwicklung auffallen können. Wären diese dann von vornherein bekannt
                 gewesen, wäre die Ent-scheidung ggf. anders ausgefallen.</p>
-            <p>Aktuell <a class="tablebold">345</a> Einträge!</p>
+            <p>Aktuell <a class="tablebold">{{ eintragAnzahl }}</a> Einträge!</p>
         </div>
     </section>
 
@@ -50,8 +53,8 @@
         <div>
             <h2>Mitmachen</h2>
             <p>Du findest dieses komplett inhaltslose und langweilige Projekt cool? Schön für dich, wenn du auch einen
-                Beitrag leisten willst den vermutlich nie jemand liest dann klicke auf Mitmachen um deinen persönlichen
-                Senf dazu zu geben!</p>
+                Beitrag leisten willst, den vermutlich nie jemand liest, dann klicke auf Mitmachen, um deinen persönlichen
+                Senf dazuzugeben!</p>
         </div>
     </section>
 </main>

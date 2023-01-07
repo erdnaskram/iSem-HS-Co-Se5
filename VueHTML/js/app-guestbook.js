@@ -7,7 +7,7 @@ window.onload
 
 function getData() {
     let request = new XMLHttpRequest();
-    request.open("GET", 'https://api.mockaroo.com/api/a4f9d370?count=50&key=82ef44b0', false);
+    request.open("GET", '../data/gestbookentry.json', false);
     request.send(null);
     gaestebuch = JSON.parse(request.responseText);
 }

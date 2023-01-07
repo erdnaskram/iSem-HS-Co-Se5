@@ -3,21 +3,41 @@ let gefiltertesGaestebuch;
 let gaestebuchSeiten;
 let seitenZahl = 5;
 let aktuelleSeitenZahl = 1;
-let suchparameter;
 
-window.onload
-{
+window.onload = function () {
     getData();
-    gefiltertesGaestebuch = gaestebuch;
-    gaestebuchSeiten = teileGaestebuch();
     loadDatat();
+    document.getElementById("suchfeld")
+        .addEventListener("input", function () {
+            filtereGaestebuch(document.getElementById("suchfeld").value);
+        });
 }
 
 function getData() {
     let request = new XMLHttpRequest();
-    request.open("GET", 'https://api.mockaroo.com/api/a4f9d370?count=50&key=82ef44b0', false);
+    request.open("GET", '../data/gestbookentry.json', false);
     request.send(null);
     gaestebuch = JSON.parse(request.responseText);
+}
+
+function loadDatat() {
+    filtereGaestebuch("");
+}
+
+function filtereGaestebuch(suchParameter) {
+    aktuelleSeitenZahl = 1;
+
+    gefiltertesGaestebuch = gaestebuch.filter(eintrag => {
+        const vorname = eintrag.name.vorname.toString().toLowerCase();
+        const nachname = eintrag.name.nachname.toString().toLowerCase();
+
+        const searchTerm = suchParameter.toLowerCase();
+
+        return vorname.includes(searchTerm) ||
+            nachname.includes(searchTerm);
+    });
+
+    teileGaestebuch();
 }
 
 function teileGaestebuch(){
@@ -34,15 +54,50 @@ function teileGaestebuch(){
         }
         if (seite !== [])
             seiten.push(seite);
-        console.log(seiten);
-        return seiten;
+    gaestebuchSeiten = seiten;
+
+    aktuelleSeitenZahl = 1;
+    berechneSeitenanzahl();
 }
 
-function loadDatat() {
-    schreibeGaestebuch();
+function berechneSeitenanzahl() {
+    let maxSeitennummer = 0;
+    for (let i = 0; i < gefiltertesGaestebuch.length; i += 4) {
+        maxSeitennummer++
+    }
+    seitenZahl = maxSeitennummer;
+
+    leereGaestebuch();
 }
+
+function leereGaestebuch() {
+    let gaestebuchWrapper = document.getElementById("gaestebucheintraege");
+
+    if (gaestebuchWrapper != null) {
+        //e.firstElementChild can be used.
+        let child = gaestebuchWrapper.lastElementChild;
+        while (child) {
+            gaestebuchWrapper.removeChild(child);
+            child = gaestebuchWrapper.lastElementChild;
+        }
+        let seitenzahlenWrapper = document.getElementById("seitenzahlen");
+
+        //e.firstElementChild can be used.
+        child = seitenzahlenWrapper.lastElementChild;
+        while (child) {
+            seitenzahlenWrapper.removeChild(child);
+            child = seitenzahlenWrapper.lastElementChild;
+        }
+    }
+    schreibeGaestebuch();
+
+}
+
 
 function schreibeGaestebuch() {
+    document.getElementById("seitenanzeige")
+        .innerText = "Gästebucheinträge - Seite " + aktuelleSeitenZahl;
+
     for (const eintrag of gaestebuchSeiten[aktuelleSeitenZahl - 1]) {
         let eintragWrapper = document.createElement("div");
         eintragWrapper.classList.add("eintrag");
@@ -118,7 +173,7 @@ function schreibeGaestebuch() {
             }
         tr4.appendChild(inhaltHobbys);
         table1.appendChild(tr4);
-        
+
         eintragWrapper.appendChild(table1);
         let table2 = document.createElement("table");
 
@@ -140,8 +195,7 @@ function schreibeGaestebuch() {
         eintragWrapper.appendChild(table2);
         // Tabelle
 
-
-        document.getElementById("Gaestebucheintraege").appendChild(eintragWrapper);
+        document.getElementById("gaestebucheintraege").appendChild(eintragWrapper);
     }
 
     // ### Seitenzahlen ###
@@ -150,13 +204,22 @@ function schreibeGaestebuch() {
         let TNseitenzahl = document.createTextNode(i);
         seitenzahl.appendChild(TNseitenzahl);
         seitenzahl.classList.add("button", "nummerButton");
-        if (i === 1)
+        if (i === aktuelleSeitenZahl)
             seitenzahl.classList.add("aktiverButton");
         seitenzahl.id = "buton" + i;
-        seitenzahl.onclick = wechselSeite(i);
+        seitenzahl.onclick = function (){wechselSeite(i)};
         document.getElementById("seitenzahlen").appendChild(seitenzahl);
     }
+
+
+    schalteButtonsUm();
 }
+
+function schalteButtonsUm() {
+    document.getElementById("buttonZurueck").disabled = aktuelleSeitenZahl <= 1;
+    document.getElementById("buttonNaechste").disabled = aktuelleSeitenZahl >= seitenZahl;
+}
+
 
 function wechselSeite(seite) {
     switch (seite) {
@@ -170,5 +233,6 @@ function wechselSeite(seite) {
             aktuelleSeitenZahl = seite;
             break;
     }
+    leereGaestebuch();
     document.documentElement.scrollTop = 480;
 }

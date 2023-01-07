@@ -61,3 +61,27 @@ li{
 #submit{
     font-size: 22px;
 }
+
+.eintrag{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    margin: 3rem auto;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 90%;
+    max-width: 40rem;
+    margin-top: 20px;
+
+    color: var(--darkgray);
+    font-size: 150%;
+}
+
+h1 {
+    color: var(--darkgray);
+}
+
+td {
+    list-style-type: none;
+    padding-left: 20px;
+}
+.box {
+}

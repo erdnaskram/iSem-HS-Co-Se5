@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/guestbook.css">
 
-
-    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="js/vue.global.js"></script>
     <script type="module" src="js/app-guestbook.js"></script>
 
     <title>Gästebuch</title>
@@ -62,7 +61,7 @@
                     </tr>
                     <tr>
                         <td class="tablebold">Hobbys:</td>
-                        <td><a v-for="hobby in eintrag.hobbys">{{hobby.beschreibung}}</a></td>
+                        <td><a v-for="hobby in eintrag.hobbys">{{hobby.beschreibung+ " "}}</a></td>
                     </tr>
                 </table>
                 <table>
