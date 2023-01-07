@@ -15,29 +15,30 @@
 </head>
 
 <body class="app">
-    <header>
-        <div id="name">
-            <h1>Project Guestbook</h1>
-            <hr>
-            <h1>HS Coburg</h1>
+<header>
+    <div id="name">
+        <h1>Project Guestbook</h1>
+        <hr>
+        <h1>HS Coburg</h1>
+    </div>
+</header>
+<nav>
+    <ul>
+        <li><a href="index.html">Über uns</a></li>
+        <li><a href="guestbook.html" class="active">Gästebuch</a></li>
+        <li><a href="form.html">Mitmachen</a></li>
+        <li><a href="https://github.com/erdnaskram/iSem-HS-Co-Se5">SourceCode</a></li>
+    </ul>
+</nav>
+<main class="wrapper">
+    <section class="box projekt">
+        <h1>Gästebucheinträge - Seite {{ aktuelleSeitenZahl }}</h1>
+        <div id="suche">
+            <input class="textInput"
+                   v-model="suchParameter"
+                   placeholder="Suchen ... ">
         </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Über uns</a></li>
-            <li><a href="guestbook.html" class="active">Gästebuch</a></li>
-            <li><a href="form.html">Mitmachen</a></li>
-            <li><a href="https://github.com/erdnaskram/iSem-HS-Co-Se5">SourceCode</a></li>
-        </ul>
-    </nav>
-    <main class="wrapper">
-        <section class="box projekt">
-            <h1>Gästebucheinträge  - Seite {{ aktuelleSeitenZahl }}</h1>
-            <div id="suche">
-                <input class="textInput"
-                       v-model="suchParameter"
-                       placeholder="Suchen ... ">
-            </div>
+        <div id="Gaestebucheintraege">
             <div v-for="eintrag in aktuelleSeite" class="eintrag">
                 <h2>{{eintrag.name.vorname}} {{eintrag.name.nachname}}</h2>
                 <hr class="line">
@@ -68,51 +69,53 @@
                     </tr>
                 </table>
             </div>
-            <div id="navigation" class="container">
-                <button class="button wechselButton"
-                        v-on:click="wechselSeite('zurück')"
-                        :disabled="ersteSeite">
-                    zurück
-                </button>
-                <button class="button nummerButton"
-                        :id="'button'+nummer"
-                        v-for="nummer in seitenZahlen"
-                        v-on:click="wechselSeite(nummer)">
-                    {{ nummer }}
-                </button>
-                <button class="button wechselButton"
-                        v-on:click="wechselSeite('nächste')"
-                        :disabled="letzteSeite">
-                    nächste
-                </button>
-            </div>
-        </section>
+        </div>
+        <div id="navigation" class="container">
+            <button class="button wechselButton"
+                    v-on:click="wechselSeite('zurück')"
+                    :disabled="ersteSeite">
+                zurück
+            </button>
+            <button class="button nummerButton"
+                    :id="'button'+seitenZahl"
+                    :class="{'aktiverButton': seitenZahl.istAktiv}"
+                    v-for="seitenZahl in seitenZahlen"
+                    v-on:click="wechselSeite(seitenZahl.zahl)">
+                {{ seitenZahl.zahl }}
+            </button>
+            <button class="button wechselButton"
+                    v-on:click="wechselSeite('nächste')"
+                    :disabled="letzteSeite">
+                nächste
+            </button>
+        </div>
+    </section>
 
-        <section class="box info">
-            <div>
-                <h2>Mitmachen</h2>
-                <p>Du findest dieses komplett inhaltslose und langweilige Projekt cool? Schön für dich, wenn du auch einen
-                    Beitrag leisten willst, den vermutlich nie jemand liest, dann klicke auf Mitmachen um deinen
-                    persönlichen
-                    Senf dazuzugeben!</p>
-            </div>
-        </section>
-    </main>
-    <hr>
-    <footer>
-        <ul id="social">
-            <li><a>FB</a></li>
-            <li><a>TW</a></li>
-            <li><a>XI</a></li>
-        </ul>
-        <ul id="rechtliches">
-            <li>
-                <a>Netzwerk</a>
-            </li>
-            <li>
-                <a>Impressum</a>
-            </li>
-        </ul>
-    </footer>
+    <section class="box info">
+        <div>
+            <h2>Mitmachen</h2>
+            <p>Du findest dieses komplett inhaltslose und langweilige Projekt cool? Schön für dich, wenn du auch einen
+                Beitrag leisten willst, den vermutlich nie jemand liest, dann klicke auf Mitmachen um deinen
+                persönlichen
+                Senf dazuzugeben!</p>
+        </div>
+    </section>
+</main>
+<hr>
+<footer>
+    <ul id="social">
+        <li><a>FB</a></li>
+        <li><a>TW</a></li>
+        <li><a>XI</a></li>
+    </ul>
+    <ul id="rechtliches">
+        <li>
+            <a>Netzwerk</a>
+        </li>
+        <li>
+            <a>Impressum</a>
+        </li>
+    </ul>
+</footer>
 </body>
 </html>

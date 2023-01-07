@@ -22,6 +22,7 @@ Vue.createApp({
     },
     computed: {
         gefiltertesGaestebuch() {
+            this.aktuelleSeitenZahl = 1;
             return this.gaestebuch.filter(eintrag => {
                 const vorname = eintrag.name.vorname.toString().toLowerCase();
                 const nachname = eintrag.name.nachname.toString().toLowerCase();
@@ -52,9 +53,14 @@ Vue.createApp({
         },
         seitenZahlen() {
             let zahlen = [];
+            console.log(this.aktuelleSeitenZahl)
             for (let i = 0; i < this.gefiltertesGaestebuch.length; i += 4) {
-                zahlen.push(i / 4 + 1)
+                if (i / 4 + 1 === this.aktuelleSeitenZahl)
+                    zahlen.push({ "zahl": i / 4 + 1, "istAktiv": true});
+                else
+                    zahlen.push({ "zahl": i / 4 + 1, "istAktiv": false});
             }
+            console.log(zahlen)
             return zahlen;
         },
         aktuelleSeite() {

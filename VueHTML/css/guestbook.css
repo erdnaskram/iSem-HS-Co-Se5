@@ -86,6 +86,11 @@ td {
     width: 35px;
 }
 
+.aktiverButton {
+    color: var(--darkblue);
+    font-weight: bold;
+}
+
 
 /* Sidebar */
 .info {
