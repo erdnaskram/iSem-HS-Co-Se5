@@ -32,24 +32,13 @@ td {
 }
 
 .ueber {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     background-color: var(--darkgray);
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     margin-top: 20px;
 }
 
-
-/* Sidebar */
-.info {
-    grid-area: info;
-    color: #444;
-}
-
-.info div{
-    background-color: var(--lightblue);
-    border-radius: 5px;
-    padding: 10px;
-}
 
 
 /* Wrapper */

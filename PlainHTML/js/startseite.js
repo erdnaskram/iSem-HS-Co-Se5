@@ -15,6 +15,5 @@ function getData() {
 
 function schreibeEintraganzahl() {
     let eintragAnzahl = document.createTextNode(gaestebuch.length);
-
     document.getElementById("eintraege").appendChild(eintragAnzahl);
 }
